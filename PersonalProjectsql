@@ -1,0 +1,58 @@
+CREATE TABLE users ( 
+user_id VARCHAR2(20) PRIMARY KEY, 
+password VARCHAR2(20) NOT NULL );
+
+CREATE TABLE archives ( 
+seq NUMBER PRIMARY KEY, 
+user_id VARCHAR2(20) REFERENCES users(user_id), 
+user_pw VARCHAR2(20) NOT NULL,
+images VARCHAR2(100) NOT NULL,
+types VARCHAR2(50) NOT NULL, 
+name VARCHAR2(100) NOT NULL, 
+score NUMBER NOT NULL
+CONSTRAINT score_range CHECK (score >= 0 AND score <= 5), -- score 컬럼에 숫자를 0부터 5까지만으로 제한하는 check 제약 조건
+comments VARCHAR2(500), 
+save DATE DEFAULT SYSDATE NOT NULL ); 
+
+insert into users values('sdh123','1234');
+insert into archives values (archives_seq.nextval, 'sdh123', 1234, 'gq', 'zzxc', 'qweqwe', 'xczxc', 'dd', 3, '꿀잼', '09-01-01');
+update archives set images='sky.jpg', types='ㅎㅇ', name='안녕하세요', genre='쟁르', producer='ㅁㄴㅇㄹ', score='4' where name='gegrtgh';
+rollback;
+commit;
+delete from users;
+delete from archives;
+delete from users where user_id='qwer' and password='zxcv';
+
+drop table archives;
+drop table users;
+
+
+select rownum, user_id, types, name, genre, producer, score, comments, save from archives;
+
+-- 하나 저장될때마다 seq컬럼 숫자 증가시키는 트리거
+CREATE SEQUENCE Archives_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;
+
+create or replace trigger trigger_archives_plus
+before insert on Archives for each row
+begin
+    :new.seq := Archives_seq.NEXTVAL;
+end;
+/
+
+
+SELECT SEQ, USER_ID, USER_PW, IMAGES, TYPES, NAME, GENRE, PRODUCER, SCORE, COMMENTS, LENGTH(COMMENTS)
+  FROM archives;
+  
+SELECT *
+  FROM ARCHIVES;
+  
+SELECT SEQ, USER_ID, USER_PW, IMAGES, TYPES, NAME, GENRE, PRODUCER, SCORE, CASE WHEN LENGTH(COMMENTS) BETWEEN 1 AND 15 THEN COMMENTS ELSE SUBSTR(COMMENTS,1,15)||'...' END COMMENTS, SAVE
+  FROM archives;
+  
+select * from archives where name like '보%';
+
+GRANT all ON archives TO dh;

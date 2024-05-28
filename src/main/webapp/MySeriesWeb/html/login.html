@@ -1,0 +1,132 @@
+<html lang="utf-8">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        
+      
+        <!-- Font online-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      
+		<!-- Animate.css-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+                
+                                
+        <link rel="stylesheet" href="./MySeriesWeb/css/login.css" >
+        
+        <!-- Google JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="./MySeriesWeb/javascript/login.js"></script>
+		<script>
+			
+			function sign() {
+		        let id=$('#id').val();
+		        let pw=$('#pw').val();
+
+		        if(id.length<4 || id.length>20 || pw.length<4 || pw.length>20) {
+            		alert('아이디와 비밀번호는 4글자 이상, 20글자 이하여야합니다.')
+            		return;
+            	}
+		        
+		        let idRegex = /^[a-z0-9]+$/i;
+		        if (!idRegex.test(id) || !idRegex.test(pw)) {
+		            alert('영소문자와 숫자만 입력 가능합니다.');
+		            return;
+		        }
+		        
+		        $.ajax({
+		            url:'signup.go',
+		            type:'POST',
+		            data: {"id":id, "pw":pw},
+		            success:function(data){
+		            	if(data==0) {
+		            		alert("이미 존재하는 아이디입니다.");
+		            	}
+		            	else {
+		            		console.log(data);
+		            		alert('회원가입 완료!');
+						    window.location.reload();
+		            	}
+		            },
+		            error:function(){
+		            	alert("회원가입 실패");
+		            }
+		        });
+			}
+			
+			function signbreak() {
+		        let id=$('#id').val();
+		        let pw=$('#pw').val();
+
+		        if(id.length<4 || id.length>20 || pw.length<4 || pw.length>20) {
+            		alert('아이디와 비밀번호는 4글자 이상, 20글자 이하여야합니다.')
+            		return;
+            	}
+		        
+		        let idRegex = /^[a-z0-9]+$/i;
+		        if (!idRegex.test(id) || !idRegex.test(pw)) {
+		            alert('영소문자와 숫자만 입력 가능합니다.');
+		            return;
+		        }
+		        
+		        $.ajax({
+		            url:'iddelete.go',
+		            type:'POST',
+		            data: {"id":id, "pw":pw},
+		            success:function(data){
+		            	if(data==0) {
+		            		alert("실패.");
+		            	}
+		            	else {
+		            		console.log(data);
+		            		alert('성공');
+						    window.location.reload();
+		            	}
+		            },
+		            error:function(){
+		            	alert("에러");
+		            }
+		        });
+			}
+			
+			function visiablebreak() {
+		        document.getElementById("signbreak-form-submit").style.display = "block";
+		    }
+			
+			function invisiablebreak() {
+		        document.getElementById("signbreak-form-submit").style.display = "none";
+		    }
+		</script>
+    </head>
+    <body>
+        <div>
+           <div class="panel shadow">
+                <form class="login-form">
+                	<h1 class="title">나만의 시리즈</h1>
+                    
+                    <h2 class="animated fadeInUp animate1" id="title-login"></h2>
+                    <h2 class="animated fadeInUp animate1 hidden" id="title-signup"></h2>
+                    <div class="panel-switch animated fadeIn">
+                        <button type="button" id="sign_up" class="active-button" onclick="visiablebreak()">Sign Up</button>
+                        <button type="button" id="log_in" class="" disabled onclick="invisiablebreak()">Log in</button>
+                    </div>
+                    <fieldset id="login-fieldset">
+                        <input class="login animated fadeInUp animate2" name="logId" type="text"   placeholder="Username" value="">
+                        <br>
+                        <input class="login animated fadeInUp animate3" name="logPw" type="password" placeholder="Password" value="">
+                    </fieldset>
+                    <fieldset id="signup-fieldset" class="hidden">
+                        <input class="login animated fadeInUp animate2" id="id" name="username" type="text"   placeholder="Username" value="">
+                        <br>
+                        <input class="login animated fadeInUp animate3" id="pw" name="password" type="password" placeholder="Choose password" value="">
+                    </fieldset>
+                    
+                    <input type="submit" id="login-form-submit" class="login_form button animated fadeInUp animate4" value="Log in" formaction="./login.do" formmethod="POST">
+                    <input type="button" id="signup-form-submit" class="login_form button animated fadeInUp animate4 hidden" value="Sign up" onclick="sign()">
+                    <!-- <input type="button" id="signbreak-form-submit" class="login_form button animated fadeInUp animate4 hidden" value="Sign break" onclick="signbreak()"> -->
+                </form>
+            </div>
+        </div>
+		<img id="bono1" src="./images/loginbono1.png">	
+		<img id="bono2" src="./images/loginbono2.png">
+    </body>
+</html>
