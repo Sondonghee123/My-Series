@@ -21,18 +21,6 @@
 ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=flat-square&logo=Oracle&logoColor=white)
 ![Tomcat](https://img.shields.io/badge/Tomcat-F8DC75?style=flat-square&logo=Apache-Tomcat&logoColor=black)
 
-## GitStats
-
-<a href="s">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SondongHee123&exclude_repo=dkssud8150.github.io&layout=compact&theme=tokyonight" width="35%" />
-  </p>
-</a>
-<br>
-
-<p align="center">
-
-![](./profile-3d-contrib/profile-green.svg)
-
 </p>
 
 <div align="center">
