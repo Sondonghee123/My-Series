@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=venom&color=gradient&CustomColorList=0,2,2,5&height=300&section=header&text=My Series&fontSize=90&fontColor=111111)
+![header](https://capsule-render.vercel.app/api?type=venom&color=gradient&CustomColorList=0,2,2,5&height=300&section=header&text=MySeries&fontSize=90&fontColor=111111)
 
 # 👋 2024 Goal 👋
 - 🤗 **Soaking Jaehwan Lee into cement** ✅
