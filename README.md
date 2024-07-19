@@ -41,7 +41,7 @@
 
 - #### 미디어 저장
 ![image](https://github.com/user-attachments/assets/5d248fcd-e0f4-4bf1-bbd6-ece75e2a44f2)
-<br>내용 입력 후 저장버 버튼 클릭 시
+<br>내용 입력 후 저장 버튼 클릭 시
 
 ![image](https://github.com/user-attachments/assets/31b81b91-f243-4584-b1c4-3db6a66b8cc2)
 <br>해당 내용의 카드가 추가됨
