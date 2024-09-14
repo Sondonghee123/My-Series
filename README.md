@@ -100,9 +100,3 @@ User 테이블에 있는 데이터와 일치할 경우 로그인 성공
 ### 1. 회원탈퇴 기능 부재
 
 더 이상 사용하지 않는 회원들에게는 탈퇴 시스템이 필요하지만 현재 구현되지 않음
-
-### Language
-<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
-
-### Database
-![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white)
